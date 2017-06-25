@@ -1,21 +1,14 @@
 import React, { Component } from 'react';
-import Slider from 'react-slick';
 import styled from 'styled-components';
 
-const Container = styled.div`
-  overflow-x: hidden;
-`
-
-const Slide = styled.div`
-  width: 144px;
-  height: 144px;
+const Card = styled.div`
   display: inline-block;
   background-color: black;
   padding: 16px;
   margin-right: 2px;
 `;
 
-const SlideContent = styled.div`
+const CardContent = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -26,29 +19,20 @@ const SlideContent = styled.div`
   font-weight: bold;
 `;
 
-class CategorySet extends Component {
+class MerchantSet extends Component {
   render() {
     const categories = [
       {
-        name: 'Burgers',
+        name: 'Tender Greens',
+        subTitle: '$2.99 delivery in 35-40 min'
       },
       {
-        name: 'Mexican',
+        name: 'Tender Greens',
+        subTitle: '$2.99 delivery in 35-40 min'
       },
       {
-        name: 'Pizza',
-      },
-      {
-        name: 'Chinese',
-      },
-      {
-        name: 'Breakfast',
-      },
-      {
-        name: 'Dessert',
-      },
-      {
-        name: 'Fast food',
+        name: 'Tender Greens',
+        subTitle: '$2.99 delivery in 35-40 min'
       },
     ]
     return (
