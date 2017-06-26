@@ -20,8 +20,12 @@ const PlaceSet = ({ title, places }) => (
   </Container>
 );
 
-const PlaceCard = ({ hero, title, subTitle }) => (
-  <Card hero={hero}>
+const PlaceCard = ({ hero, title, subTitle, imageUrl }) => (
+  <Card
+    hero={hero}
+    imageUrl={imageUrl}
+  >
+    <CardOverlay />
     <CardTitle hero={hero}>{title}</CardTitle>
     <CardSubtitle hero={hero}>{subTitle}</CardSubtitle>
   </Card>
@@ -67,17 +71,32 @@ const Card = styled.div`
   &:not(:last-child) {
     margin-bottom: ${props => !props.hero && '2px'};
   }
+
+  background-image: ${props => props.imageUrl && `url(${props.imageUrl})`};
+  background-size: cover;
+  position: relative;
+`;
+
+const CardOverlay = styled.div`
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 50%;
+  right: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
 `;
 
 const CardTitle = styled.div`
   font-size: ${props => props.hero ? '24px' : '16px'};
   color: white;
   font-weight: bold;
+  position: relative;
 `;
 
 const CardSubtitle = styled.div`
   color: white;
   font-size: 14px;
+  position: relative;
 `;
 
 const CardColumn = styled.div`

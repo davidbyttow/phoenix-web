@@ -38,7 +38,8 @@ const Section = styled.div`
 const GET_IT_AGAIN_PLACES = [
   {
     title: 'Tender Greens',
-    subTitle: '$2.99 delivery in 35-40 min'
+    subTitle: '$2.99 delivery in 35-40 min',
+    imageUrl: 'https://d2abve4vv95fsr.cloudfront.net/cQEvWsNTXuB12dVOD9EgHhrKRkI=/640x348/smart/com.postmates.img.prod.s3.amazonaws.com/c16eb63f-37f4-4428-8676-3a4146b3fee9/orig.jpg',
   },
   {
     title: 'Chipotle',
