@@ -64,7 +64,7 @@ class CategorySet extends Component {
           slidesToScroll={1}>
           {
             categories.map((c) => (
-              <Slide><SlideContent>{c.name}</SlideContent></Slide>
+              <Slide key={c.name}><SlideContent>{c.name}</SlideContent></Slide>
             ))
           }
         </Slider>

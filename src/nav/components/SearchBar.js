@@ -11,6 +11,10 @@ const SearchInput = styled.input`
   border: 0;
   outline: none;
   color: black;
+  
+  ::placeholder {
+    color: #ccc;
+  }
 `;
 
 class SearchBar extends Component {
