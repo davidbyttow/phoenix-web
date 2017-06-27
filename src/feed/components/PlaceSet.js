@@ -22,6 +22,7 @@ const PlaceSet = ({ title, places }) => (
 
 const PlaceCard = ({ hero, title, subTitle, imageUrl }) => (
   <Card
+    to="/place"
     hero={hero}
     imageUrl={imageUrl}
   >
@@ -60,7 +61,7 @@ const CardTable = styled.div`
   height: 400px;
 `;
 
-const Card = styled.div`
+const Card = styled(Link)`
   background-color: black;
   display: flex;
   flex-direction: column;
