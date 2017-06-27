@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 
 import { constants } from './actions';
+import feedReducer from './feed/reducer';
+import placeReducer from './place/reducer';
 
 const initialState = {};
 
@@ -10,6 +12,7 @@ const appReducer = (state = initialState, action) => {
 
 export const reducers = {
   appState: appReducer,
+  feedState: feedReducer,
 };
 
 const allReducers = combineReducers(reducers);

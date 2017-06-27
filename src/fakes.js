@@ -1,5 +1,13 @@
+import React from 'react';
 
-export const ENDPOINT_RESPONSES = {
+export const withFakeData = (Component) => {
+  return ({ match }) => {
+    const data = ENDPOINT_RESPONSES[match.url] || {};
+    return <Component {...data} />
+  }
+}
+
+const ENDPOINT_RESPONSES = {
   '/': {
     collections: [
       {
