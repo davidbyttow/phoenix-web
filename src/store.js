@@ -1,13 +1,38 @@
 import thunkMiddleware from 'redux-thunk';
-import { createLogger } from 'redux-logger';
 import { applyMiddleware, createStore } from 'redux';
+import { combineReducers } from 'redux';
+import { routerReducer, routerMiddleware } from 'react-router-redux'
+import { createLogger } from 'redux-logger';
 
-import reducer from './reducer';
+import feedReducer from './feed/reducer';
+import history from './history';
+import placeReducer from './place/reducer';
+import navReducer from './nav/reducer';
+import { constants } from './actions';
 
-const middlewares = [thunkMiddleware];
+const initialState = {};
+
+const appReducer = (state = initialState, action) => {
+  return state;
+};
+
+export const reducers = {
+  app: appReducer,
+  feed: feedReducer,
+  nav: navReducer,
+  router: routerReducer,
+};
+
+const allReducers = combineReducers(reducers);
+
+const rootReducer = (state, action) => {
+  switch (action.type) {
+  }
+  return allReducers(state, action);
+};
+
+const middlewares = [thunkMiddleware, routerMiddleware(history)];
 middlewares.push(createLogger());
-
-const rootReducer = reducer;
 
 const store = createStore(
   rootReducer,

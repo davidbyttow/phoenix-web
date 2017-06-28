@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'react-router-redux'
 
+import history from './history';
 import store from './store';
 
 const routes = [
@@ -13,13 +15,13 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router>
+        <ConnectedRouter history={history}>
           <div className="App">
             {
               routes.map((r) => <Route key={r.path} {...r} />)
             }
           </div>
-        </Router>
+        </ConnectedRouter>
       </Provider>
     );
   }

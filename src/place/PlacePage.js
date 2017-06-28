@@ -7,6 +7,7 @@ class PlacePage extends Component {
   render() {
     return (
       <Page>
+        <h1>Place Page</h1>
       </Page>
     );
   }

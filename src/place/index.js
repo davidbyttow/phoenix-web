@@ -4,7 +4,7 @@ import { withFakeData } from '../fakes';
 
 export const routes = [
   {
-    path: "/",
+    path: "/place",
     exact: true,
     render: withFakeData(PlacePage),
   },

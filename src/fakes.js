@@ -1,7 +1,9 @@
 import React from 'react';
 
 export const withFakeData = (Component) => {
-  return ({ match }) => {
+  return (props) => {
+    const { match } = props;
+    console.log('props', props);
     const data = ENDPOINT_RESPONSES[match.url] || {};
     return <Component {...data} />
   }
