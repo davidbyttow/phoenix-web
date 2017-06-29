@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 import CategorySet from './components/CategorySet';
 import Page from '../nav/Page';
@@ -34,4 +35,4 @@ const Section = styled.div`
   margin-top: 44px;
 `;
 
-export default FeedPage;
+export default connect(({ feed }) => ({ collections: feed.collections }))(FeedPage);

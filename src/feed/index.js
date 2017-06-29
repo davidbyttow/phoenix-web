@@ -1,11 +1,15 @@
 
+import actions from './actions';
 import FeedPage from './FeedPage';
-import { withFakeData } from '../fakes';
+import store from '../store';
 
 export const routes = [
   {
     path: "/",
     exact: true,
-    render: withFakeData(FeedPage),
+    component: FeedPage,
+    loadData: (data) => {
+      store.dispatch(actions.setFeedCollections(data.collections));
+    },
   },
 ];
