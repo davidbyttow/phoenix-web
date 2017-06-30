@@ -9,7 +9,8 @@ export const routes = [
     exact: true,
     component: FeedPage,
     loadData: (data) => {
-      store.dispatch(actions.setFeedCollections(data.collections));
+      store.dispatch(actions.setCollections(data.collections));
+      store.dispatch(actions.setCategories(data.categories));
     },
   },
 ];

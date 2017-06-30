@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
@@ -7,32 +7,31 @@ import Page from '../nav/Page';
 import PlaceSet from './components/PlaceSet';
 import SearchBar from '../nav/components/SearchBar';
 
-class FeedPage extends Component {
-  render() {
-    const { collections } = this.props;
-    return (
-      <Page>
-        <SearchBar />
-        <Section>
-          <CategorySet />
+const FeedPage = ({ categories, collections }) => (
+  <Page>
+    <SearchBar />
+    <Section>
+      <CategorySet categories={categories} />
+    </Section>
+    {
+      collections.map((c) => (
+        <Section key={c.id}>
+          <PlaceSet
+            title={c.title}
+            places={c.items}
+          />
         </Section>
-        {
-          collections.map((c) => (
-            <Section key={c.id}>
-              <PlaceSet
-                title={c.title}
-                places={c.items}
-              />
-            </Section>
-          ))
-        }
-      </Page>
-    );
-  }
-}
+      ))
+    }
+  </Page>
+);
+
 
 const Section = styled.div`
   margin-top: 44px;
 `;
 
-export default connect(({ feed }) => ({ collections: feed.collections }))(FeedPage);
+export default connect(({ feed }) => ({
+  collections: feed.collections,
+  categories: feed.categories,
+}))(FeedPage);

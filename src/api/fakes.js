@@ -54,12 +54,41 @@ const COLLECTION_STORE = {
   }
 };
 
+const CATEGORIES = [
+  {
+    name: 'Burgers',
+    imageUrl: 'https://s3.amazonaws.com/trycaviar.com/offers/641/200462-201705221728.jpg',
+  },
+  {
+    name: 'Mexican',
+    imageUrl: 'https://s3.amazonaws.com/trycaviar.com/offers/280/11601.jpg',
+  },
+  {
+    name: 'Pizza',
+    imageUrl: 'https://s3.amazonaws.com/trycaviar.com/offers/527/21258.jpg',
+  },
+  {
+    name: 'Chinese',
+  },
+  {
+    name: 'Breakfast',
+  },
+  {
+    name: 'Dessert',
+  },
+  {
+    name: 'Fast food',
+  },
+]
+
+
 export const ENDPOINT_RESPONSES = {
   '/': {
     collections: [
       COLLECTION_STORE[1],
       COLLECTION_STORE[2],
     ],
+    categories: [ ...CATEGORIES ],
   },
   '/place/tender-greens': PLACE_STORE['tender-greens'],
   '/place/chipotle': PLACE_STORE['chipotle'],

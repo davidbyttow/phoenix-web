@@ -2,6 +2,7 @@ import { constants } from './actions';
 
 const initialState = {
   collections: [],
+  categories: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -12,6 +13,13 @@ const reducer = (state = initialState, action) => {
         collections: action.collections,
       }
     }
+    case constants.SET_FEED_CATEGORIES: {
+      return {
+        ...state,
+        categories: action.categories,
+      }
+    }
+    default:
   }
   return state;
 };

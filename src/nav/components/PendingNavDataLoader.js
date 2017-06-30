@@ -1,21 +1,10 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom'
 import { matchRoutes } from 'react-router-config';
 
 import { fetchAsync } from '../../api/actions';
 import { ENDPOINT_RESPONSES } from '../../api/fakes';
-
-const fetchRouteData = (routes, location) => {
-  const matches = matchRoutes(routes, location.pathname)
-
-  const promises = matches.map(({ route, match }) => {
-    return route.fetchData
-      ? route.fetchData(match)
-      : Promise.resolve(null);
-  });
-
-  return Promise.all(promises);
-}
 
 class PendingNavDataLoader extends Component {
   static contextTypes = {
@@ -23,7 +12,8 @@ class PendingNavDataLoader extends Component {
       history: PropTypes.object.isRequired,
       route: PropTypes.object.isRequired,
       staticContext: PropTypes.object
-    })
+    }),
+    routes: PropTypes.array,
   };
 
   state = {
@@ -32,14 +22,14 @@ class PendingNavDataLoader extends Component {
   };
 
   componentWillMount() {
-    const { routes, store } = this.props;
+    const { routes } = this.props;
     const { location } = this.context.router.history;
-    const matches = matchRoutes(this.props.routes, location.pathname)
+    const matches = matchRoutes(routes, location.pathname)
 
     const injectedData = ENDPOINT_RESPONSES[location.pathname];
 
     matches.map(({ route, match }) => {
-      route.loadData && route.loadData(injectedData);
+      return route.loadData && route.loadData(injectedData);
     });
   }
 

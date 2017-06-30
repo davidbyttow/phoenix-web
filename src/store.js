@@ -8,7 +8,6 @@ import feedReducer from './feed/reducer';
 import history from './history';
 import placeReducer from './place/reducer';
 import navReducer from './nav/reducer';
-import { constants } from './actions';
 
 const initialState = {};
 

@@ -2,6 +2,8 @@ import { namespaceAction, createAction } from '../actions';
 
 import { ENDPOINT_RESPONSES } from './fakes';
 
+const FAKE_SERVER_LATENCY = 300;
+
 export const constants = {
   REQUEST_DATA: namespaceAction('REQUEST_DATA'),
   DATA_RECEIVED: namespaceAction('DATA_RECEIVED'),
@@ -27,7 +29,7 @@ export const fetchAsync = path => dispatch => {
         dispatch(actions.requestDataFailed(path, error))
         reject(error);
       }
-    }, 200);
+    }, FAKE_SERVER_LATENCY);
   });
 }
 
