@@ -27,6 +27,7 @@ class PendingNavDataLoader extends Component {
     const { location } = this.context.router.history;
     const matches = matchRoutes(routes, location.pathname)
 
+    // TODO(d): This should just be injected on the page.
     const injectedData = ENDPOINT_RESPONSES[location.pathname];
 
     matches.map(({ route, match }) => {

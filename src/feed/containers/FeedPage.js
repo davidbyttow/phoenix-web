@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-import CategorySet from './components/CategorySet';
-import Page from '../nav/Page';
-import PlaceSet from './components/PlaceSet';
-import SearchBar from '../nav/components/SearchBar';
+import CategorySet from '../components/CategorySet';
+import Page from '../../nav/Page';
+import PlaceSet from '../components/PlaceSet';
+import SearchBar from '../../nav/components/SearchBar';
 
 const FeedPage = ({ categories, collections }) => (
   <Page>
@@ -26,6 +27,10 @@ const FeedPage = ({ categories, collections }) => (
   </Page>
 );
 
+FeedPage.propTypes = {
+  collections: PropTypes.array.isRequired,
+  categories: PropTypes.array.isRequired,
+};
 
 const Section = styled.div`
   margin-top: 44px;

@@ -18,6 +18,8 @@ export const actions = {
 
 export const fetchAsync = path => dispatch => {
   dispatch(actions.requestData(path));
+
+  // Fake the server latency
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const data = ENDPOINT_RESPONSES[path];

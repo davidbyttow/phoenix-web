@@ -24,12 +24,7 @@ export const reducers = {
 };
 
 const allReducers = combineReducers(reducers);
-
-const rootReducer = (state, action) => {
-  switch (action.type) {
-  }
-  return allReducers(state, action);
-};
+const rootReducer = (state, action) => allReducers(state, action);
 
 const middlewares = [thunkMiddleware, routerMiddleware(history)];
 middlewares.push(createLogger());

@@ -1,6 +1,6 @@
 
 import actions from './actions';
-import FeedPage from './FeedPage';
+import FeedPage from './containers/FeedPage';
 import store from '../store';
 
 export const routes = [
