@@ -19,6 +19,7 @@ const appReducer = (state = initialState, action) => {
 export const reducers = {
   app: appReducer,
   feed: feedReducer,
+  place: placeReducer,
   nav: navReducer,
   router: routerReducer,
 };

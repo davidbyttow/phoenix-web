@@ -20,9 +20,9 @@ const PlaceSet = ({ title, places }) => (
   </Container>
 );
 
-const PlaceCard = ({ hero, title, subTitle, imageUrl }) => (
+const PlaceCard = ({ hero, id, title, subTitle, imageUrl }) => (
   <Card
-    to="/place"
+    to={`/place/${id}`}
     hero={hero}
     imageUrl={imageUrl}
   >
