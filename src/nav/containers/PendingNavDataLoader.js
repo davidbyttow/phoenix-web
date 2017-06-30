@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom'
 import { matchRoutes } from 'react-router-config';
 
+import actions from '../actions';
 import { fetchAsync } from '../../api/actions';
 import { ENDPOINT_RESPONSES } from '../../api/fakes';
 
@@ -38,6 +39,7 @@ class PendingNavDataLoader extends Component {
     const { location } = nextContext.router.history;
 
     if (this.state.location !== location) {
+      store.dispatch(actions.setPageLoading(true));
       this.setState({
         pending: true,
       });
@@ -54,6 +56,7 @@ class PendingNavDataLoader extends Component {
       });
 
       Promise.all(promises).then(() => {
+        store.dispatch(actions.setPageLoading(false));
         this.setState({
           location,
           pending: false,
